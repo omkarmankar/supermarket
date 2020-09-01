@@ -1,0 +1,196 @@
+#main{
+    display: flex-inline;
+    margin-top: 4%;
+}
+/*******************Left Panel css************************/
+#profile{
+    width: 100%;
+    padding: 2%;
+    color: black;
+    border-radius: 0.2vw;
+    background-color:#76a0c9;
+    display: inline-flex;
+}
+#profileImage{
+    cursor: pointer;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+}
+#name{
+    margin-left: 2%;
+    font-size: 1.2vw;
+    font-weight: 500;
+}
+#options{
+    cursor: pointer;
+    margin-top: 2%;
+    background-color: whitesmoke;
+    border-radius: 0.2vw;
+}
+ul{
+    list-style: none;
+    padding: 0px !important;
+}
+.option{
+    padding: 4%;
+    font-size: 1.3vw;
+    font-weight: 500;
+}
+ul li{  
+    padding: 4%;
+    font-size: 1.3vw;
+    font-weight: 500;
+    color: black;
+    cursor: pointer;
+}
+#content{
+    background-color: whitesmoke;
+    border-radius: 0.2vw;
+}
+/*******************Orderlist css************************/
+#ordersContainer{
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 80vh;
+}
+.cardrow{
+    display:flex;
+    justify-content: space-between !important;
+    align-items: center;
+}
+#ordersContainer .card{
+    font-size: 1.2vw !important;
+    font-weight: 500 !important;
+}
+#cancelOrderBtn{
+    font-size: 1.2vw !important;
+}
+h2{
+    text-align: center;
+    margin-top: 5vh;
+}
+
+/******************* Saved Addresses css************************/
+ #addressContainer{
+    flex-direction: column;
+    margin-bottom: 10vh;
+} 
+.addressCard{
+    margin-top: 2%;
+    width: 80% !important;
+    /* flex:calcp(0,0,50%) !important;  */
+}
+.settings{
+    float: right;
+}
+.settings i{
+   font-size: 1.5vw !important;
+   margin-left: 1vw !important;
+}
+.addressType{
+    font-size: 1.5vw;
+}
+.address{
+    font-size: 1vw;
+    font-weight: 500;
+    display: inline !important;
+}
+.card{
+    margin:2% !important;
+}
+#formDiv{
+    display:flex !important;
+    justify-content: space-around;
+}
+.column{
+    flex:calc(0,0,50%) !important;
+}
+label{
+    font-size: 1.2w;
+    font-weight: 500;
+}
+
+.radioBtnGroup{
+    display: inline-flex;
+    margin-top: 2%;
+    margin-left: 0vw;
+}
+.radioBtnGroup label{
+    top:-12%;
+    position: relative;
+}
+input[type="radio"]{
+    margin-left: 1vw;
+    font-size: 1.2vw;
+    height: 25px;
+    width: 25px;
+}
+
+button{
+    margin-top: 2% !important;
+    font-size: 1.5vw !important;
+    padding: 1.5% !important;
+}
+#addAddress{
+    font-size: 1.5vw !important;
+    padding: 1% !important;
+    margin-left: 1vw !important;
+}
+
+/********************************************************* */
+#imageUpload{
+    display: none;
+}
+#imageUploadBtn{
+    font-size: 1.4vw !important;
+    width:25% !important;
+}
+
+/* ***************************Media Queries************************************ */
+@media (max-width: 700px) {
+    #name{
+        font-size: 4vw;
+        font-weight: 600;
+    }
+    #content{
+        margin-bottom: 5vh;
+    }
+    .option{
+        font-size: 4vw;
+        font-weight: 600;
+    }
+    ul li{
+        font-size: 4vw;
+        font-weight: 600;
+    }
+    #editFormDetails .card{
+        margin: 17vw 4vw !important;
+    }
+    #ordersContainer .card{
+        font-size: 4vw !important;
+        margin: 4vw 4vw !important;
+    }
+    #cancelOrderBtn{
+        font-size: 3vw !important;   
+    }
+    button{
+        font-size: 4vw !important;
+    }
+    .settings i{
+        font-size: 4.5vw !important;
+        margin-left: 2vw !important;
+    }
+}
+  /* @media only screen and (max-width: 1350px) and (min-width: 1050px) {
+  
+  @media only screen and (max-width: 1024px) and (min-width: 800px) {
+  }
+  @media screen and (max-width: 1400px) and (min-width: 1200px) {
+  }
+  @media screen and (max-width: 1700px) and (min-width: 1420px) {
+  }
+  
+  @media screen and (max-width: 1920px) and (min-width: 1720px) {
+  
+  } */

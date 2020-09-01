@@ -1,0 +1,8 @@
+
+#edit_address_model{
+    overflow-y: scroll !important;
+}
+.cate-header{
+    display: inline-flex !important;
+    justify-content: space-between;
+}

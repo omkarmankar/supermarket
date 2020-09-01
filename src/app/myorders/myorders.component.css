@@ -1,0 +1,12 @@
+.call-bill{
+    justify-content: space-between;
+}
+.order-bill-slip{
+    margin-left: 0px !important;  
+}
+.bill-btn5{
+    color: white !important;
+}
+h4{
+    text-transform: capitalize;
+}

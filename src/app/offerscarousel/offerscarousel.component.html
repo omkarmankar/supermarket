@@ -1,0 +1,21 @@
+<ngx-carousel 
+        id="offerCarousel"
+        class="mx-auto col-md-12 col-lg-12"
+        [inputs]="carouselOne"
+        (carouselLoad)="myfunc($event)">
+          <ngx-item NgxCarouselItem>
+            <img class="d-block w-100" src="../../assets/images/Ghee-Banner.jpg" alt="First slide">
+          </ngx-item>
+          <ngx-item NgxCarouselItem>
+            <img class="d-block w-100" src="../../assets/images/grocery--staples_03.jpg" alt="Second slide">
+          </ngx-item>
+          <ngx-item NgxCarouselItem>
+            <img class="d-block w-100" src="../../assets/images/home-care_04.jpg" alt="Fourth slide">
+          </ngx-item>
+          <ngx-item NgxCarouselItem>
+            <img class="d-block w-100" src="../../assets/images/Oil-Banner.jpg" alt="Five slide">
+          </ngx-item>
+          <button NgxCarouselPrev class='leftRs'>&lt;</button>
+          <button NgxCarouselNext class='rightRs'>&gt;</button>
+  </ngx-carousel>
+ 

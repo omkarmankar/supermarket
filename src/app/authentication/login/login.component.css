@@ -1,0 +1,49 @@
+button{
+    border-radius: 0.5vw !important;
+    margin-top: -3% !important;
+    width:-webkit-fill-available;
+    color: white;
+    font-size: 20px;
+}
+label{
+    width:-webkit-fill-available;
+    margin-bottom: 4% !important; 
+}
+#formHeader{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.3vw;
+    font-weight: 500;
+}
+#formHeader div{
+    padding: 2%;
+    width: fit-content;
+}
+.part{
+    border-left: 0.1vw solid black !important;
+}
+#checkboxContainer{
+    display: inline-flex;
+    justify-content: stretch;
+}
+input[type="checkbox"]{
+    width:5% !important;
+}
+#terms{
+    width:98%
+}
+#note{
+    color:#007bff;
+    text-align: center;
+    font-size: 1vw;
+}
+/* ***************************Media Queries************************************ */
+@media (max-width: 700px) {
+    #formHeader{
+        font-size: 4.5vw !important;
+    }
+    #note{
+        font-size: 3vw;
+    }
+}

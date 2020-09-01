@@ -1,0 +1,96 @@
+ <div class="mx-auto mt-4 col-md-4 ">
+        <div class="container card">
+            <div  id="formHeader">
+                <div (click)="showLoginForm()" class="mt-2">
+                    Log In
+                </div>
+                <div (click)="showSignUpForm()" class="part mt-2">
+                    Sign Up
+                </div>   
+            </div>
+             <div class="card-body">
+                 <div *ngIf="showLogin" id="loginPart">
+                    <form [formGroup]="loginForm" (ngSubmit)="login()">
+                    <div class="form-group">
+                        <input type="text" formControlName="mobile" placeholder="Mobile" class="form-control" [ngClass]="{'is-invalid':submitted && loginControl.mobile.errors}" min.length="8" max.length="15" keypress="testnumber($event)"/>
+                        <div *ngIf="submitted && loginControl.mobile.errors" class="invalid-feedback">
+                            <div *ngIf="loginControl.mobile.errors.required">Mobile no is required</div> 
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" formControlName="password" placeholder="Password" class="form-control" [ngClass]="{'is-invalid':submitted && loginControl.password.errors}"/>
+                        <div *ngIf="submitted && loginControl.password.errors" class="invalid-feedback">
+                            <div *ngIf="loginControl.password.errors.required">password is required</div>   
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <button  type="submit" class="btn bg-primary"
+                        style="border-color: antiquewhite;border-width: 3px; color: antiquewhite;">Login</button>
+                         <h6>{{login_errs}}</h6> 
+                    </div>
+                    <div class="form-group">
+                        <button  type="button" class="btn bg-primary" (click)="signInWithGoogle()"
+                        style="border-color: antiquewhite;border-width: 3px; color: antiquewhite;">Sign In With Google</button>
+                    </div>
+                    </form>
+                 </div>
+                 <div *ngIf="!showLogin" id="signUpPart">
+                    <form [formGroup]="signUpForm" (ngSubmit)="signUp()">
+                    <div class="form-group">
+                        <input type="text" formControlName="name" placeholder="Name" required class="form-control" [ngClass]="{'is-invalid':submitted && signUpControl.name.errors}"/>
+                        <div *ngIf="submitted && signUpControl.name.errors" class="invalid-feedback">
+                            <div *ngIf="signUpControl.name.errors.required">Name is required</div>
+                          </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" formControlName="signupmobile" placeholder="Mobile" required class="form-control" [ngClass]="{'is-invalid':submitted && signUpControl.signupmobile.errors}" minlength="8" maxlength="10"  (keypress)="testnumber($event)"/>
+                        <div *ngIf="submitted && signUpControl.signupmobile.errors" class="invalid-feedback">
+                            <div *ngIf="signUpControl.signupmobile.errors.required">Mobile no is required</div>
+                            <div *ngIf="signUpControl.signupmobile.errors.minlength">Mobile no must contain minimum 8 digits</div>
+                            <div *ngIf="signUpControl.signupmobile.errors.maxlength">Mobile no must contain maximum 15 digits</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" formControlName="email" placeholder="Email" required class="form-control" [ngClass]="{'is-invalid':submitted && signUpControl.email.errors}"/>
+                        <div *ngIf="submitted && signUpControl.email.errors" class="invalid-feedback">
+                            <div *ngIf="signUpControl.email.errors.required">Email is required</div>
+                            <div *ngIf="signUpControl.email.errors.email">Email must be valid</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" formControlName="signuppassword" placeholder="Password" required class="form-control" [ngClass]="{'is-invalid':submitted && signUpControl.signuppassword.errors}" minlength="8" maxlength="20"/>
+                        <div *ngIf="submitted && signUpControl.signuppassword.errors" class="invalid-feedback" >
+                            <div *ngIf="signUpControl.signuppassword.errors.required">Password is required</div>
+                            <div *ngIf="signUpControl.signuppassword.errors.minlength">Password must contain minimum 8 characters</div>
+                            <div *ngIf="signUpControl.signuppassword.errors.maxlength">Password must contain minimum 20 characters</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" formControlName="confirmpassword" placeholder="Confirm Password" class="form-control" [ngClass]="{'is-invalid':submitted && signUpControl.confirmpassword.errors}"/>
+                        <div *ngIf="submitted && signUpControl.confirmpassword.errors" class="invalid-feedback">
+                            <div *ngIf="signUpControl.confirmpassword.errors.required">Confirm password is required</div>
+                            <div *ngIf="signUpControl.confirmpassword.errors?.mismatch">Password doesn't match </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div id="checkboxContainer">
+                            <input type="checkbox" required formControlName="termsconditions" class="form-control" [ngClass]="{'is-invalid':submitted && signUpControl.termsconditions.errors}"/>
+                            <div id="terms">
+                                I Accept Terms & Conditions,Privacy Policy
+                            </div>  
+                        </div>
+                        <div *ngIf="submitted && signUpControl.termsconditions.errors" class="invalid-feedback">
+                            <div *ngIf="signUpControl.termsconditions.errors.required">You have read and agree to the Terms and Conditions and Privacy Policy</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn bg-primary"
+                        style="border-color: antiquewhite;border-width: 3px; color: antiquewhite;">Sign Up</button>
+                        <h6 class="text-danger">{{signup_err}}</h6>
+                    </div>
+                    <div id="note">By signing up, you agree to our Terms And Conditions</div>
+                    </form>
+                 </div>
+                 </div>
+        </div> 
+    </div>

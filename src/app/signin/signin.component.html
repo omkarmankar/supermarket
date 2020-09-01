@@ -1,0 +1,48 @@
+<div class="sign-inup">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-5">
+                <div class="sign-form">
+                    <div class="sign-inner">
+                        <div class="sign-logo" id="logo">
+                            <a routerLink="/"><img src="../../assets/images/template/logo.svg" alt=""></a>
+                            <a routerLink="/"><img class="logo-inverse" src="../../assets/images/template/dark-logo.svg" alt=""></a>
+                        </div>
+                        <div class="form-dt">
+                            <div class="form-inpts checout-address-step">
+                                <form [formGroup]="loginForm" (ngSubmit)="login()">
+                                    <div class="form-title"><h6>Sign In</h6></div>
+                                    <div class="form-group pos_rel">
+                                        <input  formControlName="mobile"  type="text" placeholder="Mobile" class="form-control" [ngClass]="{'is-invalid':submitted && loginControl.mobile.errors}" min.length="8" max.length="15" keypress="testnumber($event)">
+                                        <div *ngIf="submitted && loginControl.mobile.errors" class="invalid-feedback">
+                                            <div *ngIf="loginControl.mobile.errors.required">Mobile no is required</div> 
+                                        </div>
+                                    </div>
+                                    <div class="form-group pos_rel">
+                                        <input  type="password" formControlName="password" placeholder="Password" class="form-control" [ngClass]="{'is-invalid':submitted && loginControl.password.errors}">
+                                        <div *ngIf="submitted && loginControl.password.errors" class="invalid-feedback">
+                                            <div *ngIf="loginControl.password.errors.required">password is required</div>   
+                                        </div>
+                                    </div>
+                                    <div class="form-group pos_rel">
+                                        <button class="login-btn hover-btn" type="submit">Sign In Now</button>
+                                        <h6>{{login_errs}}</h6> 
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="password-forgor">
+                                <a href="forgot_password.html">Forgot Password?</a>
+                            </div>
+                            <div class="signup-link">
+                                <p>Don't have an account? - <a routerLink="/register" >Sign Up Now</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="copyright-text text-center mt-3">
+                    <i class="uil uil-copyright"></i>Copyright 2020 <b>Supermarket</b> . All rights reserved
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

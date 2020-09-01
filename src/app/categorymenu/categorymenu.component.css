@@ -1,0 +1,113 @@
+/* Defines the width of the carousel and centers it on the page */
+  .superCategoryMenu{
+     display: inline-flex;
+     align-items: center;
+     justify-content: space-evenly;
+     flex-wrap: wrap;
+     margin-top: 2%;
+     margin-bottom: 1%;
+     border-radius: 0.5vw;
+    /*  background-color: #e8e8e8; */
+  }
+  .superCategoryItem img{
+    cursor: pointer;
+    width: max-content;
+  }
+
+  .category-menu{
+    margin-top: 0.5%;
+    border-radius: 0.2vw;
+  }
+  .superCategoryName{
+    text-align: center;
+    padding: 0 !important;
+    font-size: 1vw;
+    font-weight:550;
+    margin-bottom: 8%;
+  }
+  .dropdown-content{
+    margin-top: -1vh !important;
+    z-index: 1000;
+    position: absolute;
+    height: 50vh;
+    background-color: #f1f1f1;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  }
+  .nopadding{
+    padding: 0px !important;
+  }
+  ul li i{
+    font-size: 1.5vw;
+    font-weight: bold;
+    padding: 2%;
+  }
+ .highlightSuperCategory{
+   margin-bottom: 0.5vw solid blue;
+ }
+  .list{
+    margin-top: 1%; 
+  }
+  
+  .list li{
+    background-color: whitesmoke;
+    font-size: 1.2vw;
+    font-weight: bold;
+    list-style: none;
+    padding: 4%;
+  }
+  .list li:hover {
+    color: honeydew;
+    background-color: rgb(70, 177, 70);
+  }
+
+
+  #superCategoryGrid{
+    display: none;
+    background: #efefef;
+    padding: 6%;
+    overflow: hidden;
+  }
+  #superCategoryGrid h4{
+    text-align: center !important;
+  }
+  #superCategoryGrid ul
+  {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-content: space-between;
+    background-color: ghostwhite;
+    border-radius: 2vw;
+  }
+  #superCategoryGrid ul li{
+    list-style: none !important;
+    flex: 0 33.333333%
+  }
+  /* ***************************Media Queries************************************ */
+@media (max-width: 700px) {
+  .superCategoryMenu{
+    display: none;
+  }
+  #superCategoryGrid{
+    display: none;
+  }
+  #superCategoryGrid ul li{
+    padding: 2%;
+  }
+  .superCategoryName{
+    font-size: 4vw;
+  }
+}
+/* @media only screen and (max-width: 1350px) and (min-width: 1050px) {
+
+@media only screen and (max-width: 1024px) and (min-width: 800px) {
+}
+@media screen and (max-width: 1400px) and (min-width: 1200px) {
+}
+@media screen and (max-width: 1700px) and (min-width: 1420px) {
+}
+
+@media screen and (max-width: 1920px) and (min-width: 1720px) {
+
+} */

@@ -1,0 +1,51 @@
+<div id="print" class="col-md-1 col-lg-1 col-md-offset-10 col-lg-offset-10">
+    <button (click)="downloadAsPDF();" class="btn btn-primary">Print Invoice</button>
+</div> 
+<div id="bill" #bill>
+    <div>
+         <div  class="col-md-1 col-lg-1">
+            <img id="logoImage" #logoImage  src="../../assets/images/logo.png" alt="logoImage">
+          <!--   <canvas #canvas width="200px" height="100px"></canvas> -->
+        </div> 
+    </div>
+    <div class="row">
+        <div>
+            <div class="header">Order Details</div>
+            <div class="content">
+                <div>Invoice Number :{{orderDetails.id}}</div>
+                <div>Order Date :{{orderDetails.order_date}}</div>
+                <div>Order Id :</div>
+                <div>Payment Method :</div>
+            </div>
+        </div>   
+        <div>
+            <div class="header">Billing Details</div>
+            <div class="content">
+                <div>Customer Name :{{billingDetails.name}}</div>
+                <div>Address: {{billingDetails.house+" "+billingDetails.street+" "+billingDetails.zipcode}}</div>
+                <div>City :{{billingDetails.city}}</div>
+                <div>State :{{billingDetails.state}}</div>
+            </div>
+        </div>
+    </div>
+    <table class="table table-responsive">
+        <thead>
+            <tr>
+                <th>Product</th><th>Unit</th><th>Qty</th><th>Price</th><th>Total</th>
+            </tr>          
+        </thead>
+        <tbody>
+            <tr *ngFor="let product of productsList">
+                <td>{{product.product_name}}</td>
+                <td class="productDetails">
+                <span>{{product.unit}}</span>
+                </td>
+                <td><span>{{product.quantity}}</span></td>
+                <td><span>{{product.price}}</span></td>
+                <td>{{product.subtotal_price}}</td>
+            </tr>
+            <tr><td></td><td></td><td></td><td>Subtotal</td><td>{{totalAmount}}</td></tr>
+            <tr><td></td><td></td><td></td><td>Total</td><td>{{totalAmount}}</td></tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,21 @@
+.right-cart-dt-body{
+    overflow-x: auto;
+    height: 35vh; 
+}
+
+.orderBtn{
+    cursor: pointer !important;
+}
+
+.next-btn16{
+    color: white !important;
+}
+
+.paymentbuttons{
+  /* display: inline-flex !important;
+   justify-content:space-around !important; */
+}
+
+.paymentbuttons a{
+    margin: 2% !important;
+}

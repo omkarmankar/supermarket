@@ -1,0 +1,316 @@
+<!-- Add Address Model Start-->
+<div id="address_model" class="header-cate-model main-gambo-model modal fade" tabindex="-1" role="dialog" aria-modal="false">
+    <div class="modal-dialog category-area" role="document">
+        <div class="category-area-inner">
+            <div class="modal-header">
+                <button type="button" class="close btn-close" data-dismiss="modal" aria-label="Close">
+                    <i class="uil uil-multiply"></i>
+                </button>
+            </div>
+            <div class="category-model-content modal-content"> 
+                <div class="cate-header">
+                    <h4>Add New Address</h4>
+                </div>
+                <div class="add-address-form">
+                    <div class="checout-address-step">
+                        <div class="row">
+                            <div class="col-lg-12">												
+                                <form [formGroup]="addFrom" (ngSubmit)="addAddress()">
+                                    <!-- Multiple Radios (inline) -->
+                                    <div class="form-group">
+                                        <div class="product-radio">
+                                            <ul class="product-now">
+                                                <li>
+                                                    <input id="ad1" type="radio" value="home" formControlName="type" [ngClass]="{'is-invalid':submitted && addAddressForm.type.errors}">
+                                                    <label for="ad1">Home</label>
+                                                  </li>
+                                                  <li>
+                                                    <input id="ad2" type="radio" value="office" formControlName="type"
+                                                    [ngClass]="{'is-invalid':submitted && addAddressForm.type.errors}">
+                                                    <label for="ad2">Office</label>
+                                                  </li>
+                                                  <li>
+                                                    <input id="ad3" type="radio" value="other" formControlName="type"
+                                                    [ngClass]="{'is-invalid':submitted && addAddressForm.type.errors}">
+                                                    <label for="ad3">Other</label>
+                                                  </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="address-fieldset">
+                                        <div class="row">
+                                            <div class="col-lg-12 col-md-12">
+                                                <div class="form-group">
+                                                    <label class="control-label">Flat/House No./Building Name *</label>
+                                                    <input type="text" formControlName="house" placeholder="enter the houseno" required class="form-control" [ngClass]="{'is-invalid':addressSubmitted && addAddressForm.house.errors}"/>
+                                                    <div *ngIf="addressSubmitted && addAddressForm.house.errors" class="invalid-feedback">
+                                                        <div *ngIf="addAddressForm.house.errors.required">Flat/House No./Building Name is required</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-12 col-md-12">
+                                                <div class="form-group">
+                                                    <label class="control-label">Street *</label>
+                                                    <input type="text" formControlName="street" placeholder="enter the street" required class="form-control" [ngClass]="{'is-invalid':addressSubmitted && addAddressForm.street.errors}" minlength="8" maxlength="20"/>
+                                                    <div *ngIf="addressSubmitted && addAddressForm.street.errors" class="invalid-feedback" >
+                                                        <div *ngIf="addAddressForm.street.errors.required">Street is required</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 col-md-12">
+                                                <div class="form-group">
+                                                    <label class="control-label">Pincode *</label>
+                                                    <input type="text" formControlName="pincode" placeholder="enter the pincode" required class="form-control" [ngClass]="{'is-invalid':addressSubmitted && addAddressForm.pincode.errors}" min.length="6" max.length="6" keypress="testnumber($event)"/>
+                                                    <div *ngIf="addressSubmitted && addAddressForm.pincode.errors" class="invalid-feedback">
+                                                        <div *ngIf="addAddressForm.pincode.errors.required">Pincode is required</div>
+                                                        <div *ngIf="addAddressForm.pincode.errors.minlength">Pincode must contain minimum 6 digits</div>
+                                                        <div *ngIf="addAddressForm.pincode.errors.maxlength">Pincode must contain maximum 6 digits</div>
+                                                      </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 col-md-12">
+                                                <div class="form-group">
+                                                    <label class="control-label">City *</label>
+                                                    <input type="text" formControlName="city" placeholder="enter the city" required class="form-control" [ngClass]="{'is-invalid':addressSubmitted && addAddressForm.city.errors}"/>
+                                                    <div *ngIf="addressSubmitted && addAddressForm.city.errors" class="invalid-feedback">
+                                                        <div *ngIf="addAddressForm.city.errors.required">City is required</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 col-md-12">
+                                                <div class="form-group">
+                                                    <label class="control-label">State *</label>
+                                                    <input type="text" formControlName="state" placeholder="enter the state" required class="form-control" [ngClass]="{'is-invalid':addressSubmitted && addAddressForm.state.errors}"/>
+                                                    <div *ngIf="addressSubmitted && addAddressForm.state.errors" class="invalid-feedback">
+                                                        <div *ngIf="addAddressForm.state.errors.required">State is required</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-12 col-md-12">
+                                                <div class="form-group mb-0">
+                                                    <div class="address-btns">
+                                                        <button type="submit" class="save-btn14 hover-btn">Save</button>
+                                                        <h6 class="text-danger">{{address_err}}</h6>
+                                                    </div> 
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Add Address Model End-->
+
+
+<!-- Edit Address Model Start-->
+<div id="edit_address_model" class="header-cate-model main-gambo-model modal fade" tabindex="-1" role="dialog" aria-modal="false">
+    <div class="modal-dialog category-area" role="document">
+        <div class="category-area-inner">
+            <!-- <div class="modal-header">
+                <button type="button" class="close btn-close" data-dismiss="modal" aria-label="Close">
+                    <i class="uil uil-multiply"></i>
+                </button>
+            </div> -->
+            <div class="category-model-content modal-content"> 
+                <div class="cate-header">
+                    <h4>Edit Address</h4>
+                    <button (click)="closeModal()" type="button" class="close btn-close">
+                        <i class="uil uil-multiply"></i>
+                    </button>
+                </div>
+                <div class="add-address-form">
+                    <div class="checout-address-step">
+                        <div class="row">
+                            <div class="col-lg-12">												
+                                <form [formGroup]="updateForm" (ngSubmit)="updateAddress()">
+                                    <!-- Multiple Radios (inline) -->
+                                    <div class="form-group">
+                                        <div class="product-radio">
+                                            <ul class="product-now">
+                                                <li>
+                                                    <input id="ad4" type="radio" value="home" formControlName="type" [ngClass]="{'is-invalid':submitted && updateAddressForm.type.errors}">
+                                                    <label for="ad4">Home</label>
+                                                  </li>
+                                                  <li>
+                                                    <input id="ad5" type="radio" value="office" formControlName="type"
+                                                    [ngClass]="{'is-invalid':submitted && updateAddressForm.type.errors}">
+                                                    <label for="ad5">Office</label>
+                                                  </li>
+                                                  <li>
+                                                    <input id="ad6" type="radio" value="other" formControlName="type"
+                                                    [ngClass]="{'is-invalid':submitted && updateAddressForm.type.errors}">
+                                                    <label for="ad6">Other</label>
+                                                  </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="address-fieldset">
+                                        <div class="row">
+                                            <div class="col-lg-12 col-md-12">
+                                                <div class="form-group">
+                                                    <label class="control-label">Flat/House No./Building Name *</label>
+                                                    <input type="text" formControlName="house" placeholder="enter the houseno" required class="form-control" [ngClass]="{'is-invalid':addressSubmitted && updateAddressForm.house.errors}"/>
+                                                    <div *ngIf="addressSubmitted && updateAddressForm.house.errors" class="invalid-feedback">
+                                                        <div *ngIf="updateAddressForm.house.errors.required">Flat/House No./Building Name is required</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-12 col-md-12">
+                                                <div class="form-group">
+                                                    <label class="control-label">Street *</label>
+                                                    <input type="text" formControlName="street" placeholder="enter the street" required class="form-control" [ngClass]="{'is-invalid':addressSubmitted && updateAddressForm.street.errors}" minlength="8" maxlength="20"/>
+                                                    <div *ngIf="addressSubmitted && updateAddressForm.street.errors" class="invalid-feedback" >
+                                                        <div *ngIf="updateAddressForm.street.errors.required">Street is required</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 col-md-12">
+                                                <div class="form-group">
+                                                    <label class="control-label">Pincode *</label>
+                                                    <input type="text" formControlName="pincode" placeholder="enter the pincode" required class="form-control" [ngClass]="{'is-invalid':addressSubmitted && updateAddressForm.pincode.errors}" min.length="6" max.length="6" keypress="testnumber($event)"/>
+                                                    <div *ngIf="addressSubmitted && updateAddressForm.pincode.errors" class="invalid-feedback">
+                                                        <div *ngIf="updateAddressForm.pincode.errors.required">Pincode is required</div>
+                                                        <div *ngIf="updateAddressForm.pincode.errors.minlength">Pincode must contain minimum 6 digits</div>
+                                                        <div *ngIf="updateAddressForm.pincode.errors.maxlength">Pincode must contain maximum 6 digits</div>
+                                                      </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 col-md-12">
+                                                <div class="form-group">
+                                                    <label class="control-label">City *</label>
+                                                    <input type="text" formControlName="city" placeholder="enter the city" required class="form-control" [ngClass]="{'is-invalid':addressSubmitted && updateAddressForm.city.errors}"/>
+                                                    <div *ngIf="addressSubmitted && updateAddressForm.city.errors" class="invalid-feedback">
+                                                        <div *ngIf="updateAddressForm.city.errors.required">City is required</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 col-md-12">
+                                                <div class="form-group">
+                                                    <label class="control-label">State *</label>
+                                                    <input type="text" formControlName="state" placeholder="enter the state" required class="form-control" [ngClass]="{'is-invalid':addressSubmitted && updateAddressForm.state.errors}"/>
+                                                    <div *ngIf="addressSubmitted && updateAddressForm.state.errors" class="invalid-feedback">
+                                                        <div *ngIf="updateAddressForm.state.errors.required">State is required</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-12 col-md-12">
+                                                <div class="form-group mb-0">
+                                                    <div class="address-btns">
+                                                        <button type="submit" class="save-btn14 hover-btn">Save</button>
+                                                        <h6 class="text-danger">{{address_err}}</h6>
+                                                    </div> 
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Edit Address Model End-->
+
+
+
+<!-- Body Start -->
+<div class="wrapper">
+    <div class="gambo-Breadcrumb">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="index-2.html">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">User Dashboard</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="dashboard-group">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="user-dt">
+                        <div class="user-img">
+                            <img src="../../assets/images/template/avatar/img-5.jpg" alt="">
+                            <div class="img-add">													
+                                <input type="file" id="file">
+                                <label for="file"><i class="uil uil-camera-plus"></i></label>
+                            </div>
+                        </div>
+                        <h4>{{userName}}</h4>
+                        <p>+91{{userMobileNo}}<a href="#"><i class="uil uil-edit"></i></a></p>
+                        <!-- <div class="earn-points"><img src="../../assets/images/template/Dollar.svg" alt="">Points : <span>20</span></div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>	
+    <div class="">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-4">
+                    <div class="left-side-tabs">
+                        <div class="dashboard-left-links">
+                            <a routerLink="/dashboard" class="user-item"><i class="uil uil-apps"></i>Overview</a>
+                            <a routerLink="/myorders" class="user-item"><i class="uil uil-box"></i>My Orders</a>
+                            <a routerLink="/" class="user-item"><i class="uil uil-gift"></i>My Rewards</a>
+                            <a routerLink="/" class="user-item"><i class="uil uil-wallet"></i>My Wallet</a>
+                            <a routerLink="/" class="user-item"><i class="uil uil-heart"></i>Shopping Wishlist</a>
+                            <a routerLink="/myaddresses" class="user-item active"><i class="uil uil-location-point"></i>My Addresses</a>
+                            <a (click)="logout()" class="user-item"><i class="uil uil-exit"></i>Logout</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-9 col-md-8">
+                    <div class="dashboard-right">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="main-title-tab">
+                                    <h4><i class="uil uil-location-point"></i>My Address</h4>
+                                </div>
+                            </div>
+                            <div class="col-lg-12 col-md-12">
+                                <div class="pdpt-bg">
+                                    <div class="pdpt-title">
+                                        <h4>My Address</h4>
+                                    </div>
+                                    <div class="address-body">
+                                        <a href="#" class="add-address hover-btn" data-toggle="modal" data-target="#address_model">Add New Address</a>
+                                        <div *ngFor="let address of addressArray;let i=index;" class="address-item">
+                                            <div class="address-icon1">
+                                                <i class="uil uil-home-alt"></i>
+                                            </div>
+                                            <div class="address-dt-all">
+                                                <h4>{{address.type}}</h4>
+                                                <p> {{address.house}} {{address.street}}</p>
+                                                <p>{{address.city}} {{address.zipcode}}</p>
+                                                <ul class="action-btns">
+                                                    <li><a (click)="showEditAddressForm(address.id)" class="action-btn"><i class="uil uil-edit"></i></a></li>
+                                                    <li><a (click)="deleteAddress(address.id)" class="action-btn"><i class="uil uil-trash-alt"></i></a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>	
+        </div>	
+    </div>	
+</div>
+<!-- Body End -->

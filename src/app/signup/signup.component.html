@@ -1,0 +1,69 @@
+
+<div class="sign-inup">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-5">
+                <div class="sign-form">
+                    <div class="sign-inner">
+                        <div class="sign-logo" id="logo">
+                            <a routerLink="/"><img src="../../assets/images/template/logo.svg" alt=""></a>
+                            <a routerLink="/"><img class="logo-inverse" src="../../assets/images/template/dark-logo.svg" alt=""></a>
+                        </div>
+                        <div class="form-dt">
+                            <div class="form-inpts checout-address-step">
+                                <form [formGroup]="signUpForm" (ngSubmit)="signUp()">
+                                    <div class="form-title"><h6>Sign Up</h6></div>
+                                    <div class="form-group pos_rel">
+                                        <input type="text" formControlName="name" placeholder="Name" required class="form-control" [ngClass]="{'is-invalid':submitted && signUpControl.name.errors}">
+                                        <div *ngIf="submitted && signUpControl.name.errors" class="invalid-feedback">
+                                            <div *ngIf="signUpControl.name.errors.required">Name is required</div>
+                                          </div>
+                                    </div>
+                                    <div class="form-group pos_rel">
+                                        <input type="text" formControlName="signupmobile" placeholder="Mobile" required class="form-control" [ngClass]="{'is-invalid':submitted && signUpControl.signupmobile.errors}" minlength="8" maxlength="10"  (keypress)="testnumber($event)">
+                                        <div *ngIf="submitted && signUpControl.signupmobile.errors" class="invalid-feedback">
+                                            <div *ngIf="signUpControl.signupmobile.errors.required">Mobile no is required</div>
+                                            <div *ngIf="signUpControl.signupmobile.errors.minlength">Mobile no must contain minimum 8 digits</div>
+                                            <div *ngIf="signUpControl.signupmobile.errors.maxlength">Mobile no must contain maximum 15 digits</div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group pos_rel">
+                                        <input type="text" formControlName="email" placeholder="Email" required class="form-control" [ngClass]="{'is-invalid':submitted && signUpControl.email.errors}"/>
+                                        <div *ngIf="submitted && signUpControl.email.errors" class="invalid-feedback">
+                                            <div *ngIf="signUpControl.email.errors.required">Email is required</div>
+                                            <div *ngIf="signUpControl.email.errors.email">Email must be valid</div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group pos_rel">
+                                        <input type="password" formControlName="signuppassword" placeholder="Password" required class="form-control" [ngClass]="{'is-invalid':submitted && signUpControl.signuppassword.errors}" minlength="8" maxlength="20"/>
+                                        <div *ngIf="submitted && signUpControl.signuppassword.errors" class="invalid-feedback" >
+                                            <div *ngIf="signUpControl.signuppassword.errors.required">Password is required</div>
+                                            <div *ngIf="signUpControl.signuppassword.errors.minlength">Password must contain minimum 8 characters</div>
+                                            <div *ngIf="signUpControl.signuppassword.errors.maxlength">Password must contain minimum 20 characters</div>
+                                        </div>
+                                    </div>
+                                     <div class="form-group pos_rel">
+                                        <input type="password" formControlName="confirmpassword" placeholder="Confirm Password" class="form-control" [ngClass]="{'is-invalid':submitted && signUpControl.confirmpassword.errors}"/>
+                                        <div *ngIf="submitted && signUpControl.confirmpassword.errors" class="invalid-feedback">
+                                            <div *ngIf="signUpControl.confirmpassword.errors.required">Confirm password is required</div>
+                                            <div *ngIf="signUpControl.confirmpassword.errors?.mismatch">Password doesn't match </div>
+                                        </div>
+                                     </div>
+                                     <div class="form-group pos_rel">
+                                        <button class="login-btn hover-btn" type="submit">Sign Up Now</button>
+                                        </div><h6 class="text-danger">{{signup_err}}</h6>
+                                </form>
+                            </div>
+                            <div class="signup-link">
+                                <p>I have an account? - <a routerLink="/login">Sign In Now</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="copyright-text text-center mt-3">
+                    <i class="uil uil-copyright"></i>Copyright 2020 <b>Supermarket</b> . All rights reserved
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

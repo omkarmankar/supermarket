@@ -1,0 +1,81 @@
+<div class="row mx-auto col-md-11 col-lg-11">
+  <div class="heading">Review Cart</div>
+  <div class="col-md-12 col-lg-12 table-responsive">
+      <table class="table borderless">
+        <thead>
+          <tr>
+            <th>Item Detail</th><th>Unit Price</th><th>Qty</th><th>Sub Total</th><th>  </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let product of cart;let i=index;" >
+            <td>
+                <div class="row">
+                  <div class="col-md-3">
+                      <img class="product_img img-responsive" src="{{'http://supermarket.springonline.in/thumbnail/'+cartProductImages[i]}}" alt="product-img" >
+                  </div>
+                  <div class="col-md-6">
+                      <div class="product_name">{{product.product_name}}</div>
+                      <div class="product_size">SelectedSize : {{product.unit}}</div>
+                  </div>
+                </div>
+            </td>
+            <td>
+              <div>
+                  <div class="product_price">{{product.price}}</div>
+              </div>
+            </td>
+            <td>
+              <div>
+                  <div class="value-button" (click)="decreaseValue(i,product.id)" >-</div>
+                  <input type="number" class="number" id="{{'number'+product.id}}" value="{{product.quantity}}" max="5" />
+                  <div class="value-button" (click)="increaseValue(i,product.id)">+</div>
+              </div>
+            </td>
+            <td>
+              <div>
+                  <div class="product_subtotal">Rs.{{product.subtotal}}</div>
+              </div>
+            </td>
+            <td>
+              <div class="delete_icon">
+                  <i (click)="deleteItemFromCart(product.id)" class="fa fa-trash"></i>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div id="grandTotalDiv" class="nopadding row col-md-12 col-lg-12">
+      <div id="applyCoupon" class="nopadding col-md-4 col-lg-4">
+        <div class="nopadding row col-md-12 col-lg-12">
+          <div class="rowclass">
+            <span>
+              Apply Coupon%
+            </span>
+          </div>
+        </div>
+      </div>
+      <div id="subTotal" class="nopadding col-md-4 col-lg-4">
+        <div class="nopadding row col-md-12 col-lg-12">
+          <div class="rowclass">
+            <span>
+              SubTotal
+            </span>
+            <span>
+              Rs.{{grandTotal}}
+            </span>
+          </div>
+          <div class="rowclass">
+            <span>
+            GrandTotal
+            </span>
+            <span>
+              Rs.{{grandTotal}}
+            </span>
+          </div>
+          <div id="checkoutBtn" (click)="checkout()"  class="text-center btn btn-success">Checkout</div>
+        </div>
+      </div>
+    </div>
+</div>

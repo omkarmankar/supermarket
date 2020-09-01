@@ -1,0 +1,27 @@
+#logoImage{
+    display: none;
+}
+.productDetails span{
+    display: block !important;
+}
+table tbody tr td{
+    font-size: 1.6vw !important;
+}
+table{
+    margin-top: 5vh!important;
+    width: -webkit-fill-available !important;
+}
+
+.row{
+    display: flex !important;
+}
+.row div{
+    margin-left: 2vw;
+}
+.header{
+    font-size: 1.8vw;
+    font-weight: 500;
+}
+.content{
+    font-size: 1.3vw;
+}

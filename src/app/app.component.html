@@ -1,0 +1,8 @@
+<!-- <ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "medium" color = "#fff" type = "ball-clip-rotate" [fullScreen] = "true"><p style="color: white" > Loading... </p></ngx-spinner> -->
+<app-navbar *ngIf="!currentUrl.includes('/signup') && !currentUrl.includes('/login') && !currentUrl.includes('/payment') && !currentUrl.includes('/register')"></app-navbar>
+ <main> 
+   <app-index *ngIf="currentUrl.includes('/') && !currentUrl.includes('/products') && !currentUrl.includes('/checkout') && !currentUrl.includes('/login') && !currentUrl.includes('/register') && !currentUrl.includes('/dashboard') && !currentUrl.includes('/myorders') && !currentUrl.includes('/myaddresses') && !currentUrl.includes('/orderplaced') && !currentUrl.includes('/productDetail')"></app-index>
+  <router-outlet></router-outlet>
+</main>
+ <app-footer *ngIf="!currentUrl.includes('/signup') && !currentUrl.includes('/login') && !currentUrl.includes('/payment') && !currentUrl.includes('/register')"></app-footer>
+ <ng4-loading-spinner> </ng4-loading-spinner>

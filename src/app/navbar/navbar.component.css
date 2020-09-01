@@ -1,0 +1,22 @@
+/*************************Cart***************************/
+.cart-text div span{
+    padding: 2%;
+    font-size: 1.2;
+    font-weight: 500;
+}
+
+.cart-checkout-btn{
+    color: white !important;
+}
+
+#category_model{
+    overflow-y: scroll !important;
+}
+.modal-header{
+    z-index: 1000;
+}
+
+.cate-header{
+    display: inline-flex !important;
+    justify-content: space-between;
+}
